@@ -69,16 +69,26 @@ weekTimes.forEach(function(timesText){
     function storeInput(){
 
         saveInput.addEventListener("click", function(event){
+    
 
             event.preventDefault();
 
-            var userInput=saveInsert.value.trim();
+            var userInput=saveInsert.value;
+
+            let userInputs;
+
+            if(localStorage.getItem('userInputs')==null){
+                userInputs =[];
+            } else{
+                userInputs=JSON.parse(localStorage.getItem("userInputs"));
+                console.log(lastInput);
+            }
+            userInputs.push(userInput);
             
 
             localStorage.setItem("userInput",JSON.stringify(userInput));
 
-            var lastInput=JSON.parse(localStorage.getItem("userInput"));
-            console.log(lastInput);
+           
 
             // textAreas.textContent= lastInput.userInput;
 
@@ -86,7 +96,7 @@ weekTimes.forEach(function(timesText){
 
             // textAreas.innerHTML="";
 
-            textAreas.append(lastInput);
+            textAreas.append(userInput);
 
             // console.log(elementInput);
 
