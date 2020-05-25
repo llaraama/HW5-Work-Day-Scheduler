@@ -43,7 +43,7 @@ weekTimes.forEach(function(timesText){
     textArea.attr("class","description");
 
     /* saveBtn goes inside row */
-    var buttonSave=$("<div>");
+    var buttonSave=$("<button>");
     buttonSave.text("save button");
     buttonSave.attr("class","saveBtn");
     
@@ -61,48 +61,57 @@ weekTimes.forEach(function(timesText){
     // });
     
     
+        var saveInput= document.querySelector('.saveBtn');
 
+        var saveInsert=document.querySelector('.description');
 
+        var textAreas=document.querySelector('textarea');
 
-    // var saveInput= document.querySelector('.saveBtn');
+        saveInput.addEventListener("click", function(event){
 
-    // var saveInsert=document.querySelector('.description');
+        event.preventDefault();
 
-    // saveInput.addEventListener("click", function(event){
+        var userInput={
+        UserInput:saveInsert.value.trim()
+        };
 
-    // event.preventDefault();
+        localStorage.setItem("userInput",JSON.stringify(userInput));
 
-    // var userInput={
-    //     UserInput:saveInsert.value.trim()
-    // };
+        var lastInput=JSON.parse(localStorage.getItem("userInput"));
+        console.log(lastInput);
 
-    // localStorage.setItem("userInput",JSON.stringify(userInput));
+        textAreas.textContent= lastInput.userInput;
 
-    // var lastInput=JSON.parse(localStorage.getItem("userInput"));
+        var elementInput= lastInput.userInput
 
+        textAreas.innerHTML="";
+
+        textAreas.append(elementInput);
+
+        console.log(textAreas);
 
 
 
     // saveInsert.textContent=lastInput.UserInput;
 
-    // });
+         });
 
 
    
-    
-if (timesText<time){
-    textArea.attr("class","past description");
-    
-}
-else if(timesText==time){
-    textArea.attr("class","present description");
-}
-else{
-    textArea.attr("class","future description");
+            
+        if (timesText<time){
+            textArea.attr("class","past description");
+            
+        }
+        else if(timesText==time){
+            textArea.attr("class","present description");
+        }
+        else{
+            textArea.attr("class","future description");
 
-}
+        }
 
-console.log(timesText)
+
 });
 
 
