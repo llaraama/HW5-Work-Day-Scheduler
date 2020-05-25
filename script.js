@@ -15,7 +15,7 @@ let weekATimes=[
 
 var time= moment().hours();
 console.log(time)
-weekTimes.forEach(function(timesText){
+weekATimes.forEach(function(timesText){
 
     
     /* time block outter */
@@ -109,20 +109,49 @@ weekTimes.forEach(function(timesText){
         });
 
     };
+    // converting the text to values 
+    if (timesText==="9am"){
+        timesText=9
+    };
 
+    if (timesText==="10am"){
+        timesText=10
+    };
+    if (timesText==="11am"){
+        timesText=11
+    };
+    
+    if (timesText==="12pm"){
+        timesText=12
+    };
+    if (timesText==="1pm"){
+        timesText=13
+    };
+       if (timesText==="2pm"){
+        timesText=14
+    };
+    if (timesText==="3pm"){
+        timesText=15
+    };
+    if (timesText==="4pm"){
+        timesText=16
+    };
+    if (timesText==="5pm"){
+        timesText=17
+    };
 
+   // setting the condition for the current time
+    if (timesText<time){
+        textArea.attr("class","past description");
             
-        if (timesText<time){
-            textArea.attr("class","past description");
-            
-        }
-        else if(timesText==time){
-            textArea.attr("class","present description");
-        }
-        else{
-            textArea.attr("class","future description");
+    }
+    else if(timesText==time){
+        textArea.attr("class","present description");
+    }
+    else{
+        textArea.attr("class","future description");
 
-        }
+    }
         storeInput();
 
 });
