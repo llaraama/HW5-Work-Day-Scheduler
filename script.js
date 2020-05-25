@@ -60,44 +60,47 @@ weekTimes.forEach(function(timesText){
     //     });
     // });
     
-    
-        var saveInput= document.querySelector('.saveBtn');
+    var saveInput= document.querySelector('.saveBtn');
 
-        var saveInsert=document.querySelector('.description');
+    var saveInsert=document.querySelector('.description');
 
-        var textAreas=document.querySelector('textarea');
+    var textAreas=document.querySelector('textarea');
+
+    function storeInput(){
 
         saveInput.addEventListener("click", function(event){
 
-        event.preventDefault();
+            event.preventDefault();
 
-        var userInput={
-        UserInput:saveInsert.value.trim()
-        };
+            var userInput=saveInsert.value.trim();
+            
 
-        localStorage.setItem("userInput",JSON.stringify(userInput));
+            localStorage.setItem("userInput",JSON.stringify(userInput));
 
-        var lastInput=JSON.parse(localStorage.getItem("userInput"));
-        console.log(lastInput);
+            var lastInput=JSON.parse(localStorage.getItem("userInput"));
+            console.log(lastInput);
 
-        textAreas.textContent= lastInput.userInput;
+            // textAreas.textContent= lastInput.userInput;
 
-        var elementInput= lastInput.userInput
+            // var elementInput= lastInput.userInput
 
-        textAreas.innerHTML="";
+            // textAreas.innerHTML="";
 
-        textAreas.append(elementInput);
+            textAreas.append(lastInput);
 
-        console.log(textAreas);
+            // console.log(elementInput);
 
+            console.log(textAreas);
 
+    
 
     // saveInsert.textContent=lastInput.UserInput;
 
-         });
+        });
+
+    };
 
 
-   
             
         if (timesText<time){
             textArea.attr("class","past description");
@@ -110,10 +113,12 @@ weekTimes.forEach(function(timesText){
             textArea.attr("class","future description");
 
         }
-
+        storeInput();
 
 });
 
 
+
+      
 
 
