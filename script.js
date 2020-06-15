@@ -3,16 +3,20 @@ var currentDate=moment().format('LLLL');
 $("#currentDay").append(currentDate);
 
 
-
 let weekATimes=[
     "9am","10am","11am","12pm","1pm","2pm", "3pm", "4pm","5pm",
 ];
 
 
+var weeklyCalender=[];
+
+retrieveCalender()
+storeCalender()
 
 
 var time= moment().hours();
-console.log(time)
+
+
 weekATimes.forEach(function(timesText){
 
     
@@ -26,10 +30,8 @@ weekATimes.forEach(function(timesText){
     var rowInput=$("<div>");
     $(".time-block").append(rowInput);
     rowInput.attr("class","row");
+
     
-
-
-
     /* hour goes inside row */
     var hourInsert=$("<div>");
     hourInsert.text(timesText);
@@ -38,7 +40,7 @@ weekATimes.forEach(function(timesText){
 
     /* description goes inside row */
     var textArea=$("<textarea>");
-    textArea.attr("class","description");
+    textArea.attr("id",timesText);
 
     /* saveBtn goes inside row */
     var buttonSave=$("<button>");
@@ -49,64 +51,7 @@ weekATimes.forEach(function(timesText){
     /* adding it to hour, description and saveBtn to row */
     rowInput.append(hourInsert,textArea,buttonSave);
 
-    
 
-    // $(document).ready(function(){
-    //     $('.saveBtn').click(function(event){
-    //         event.preventDefault();
-    //         localStorage.setItem(".description",JSON.stringify())
-    //     });
-    // });
-    
-    var saveInput= document.querySelector('.saveBtn');
-
-    var saveInsert=document.querySelector('.description');
-
-    var textAreas=document.querySelector('textarea');
-
-    function storeInput(){
-
-        saveInput.addEventListener("click", function(event){
-    
-
-            event.preventDefault();
-
-            var userInput=saveInsert.value;
-
-            let userInputs;
-
-            if(localStorage.getItem('userInputs')==null){
-                userInputs =[];
-            } else{
-                userInputs=JSON.parse(localStorage.getItem("userInputs"));
-                console.log(lastInput);
-            }
-            userInputs.push(userInput);
-            
-
-            localStorage.setItem("userInput",JSON.stringify(userInput));
-
-           
-
-            // textAreas.textContent= lastInput.userInput;
-
-            // var elementInput= lastInput.userInput
-
-            // textAreas.innerHTML="";
-
-            textAreas.append(userInput);
-
-            // console.log(elementInput);
-
-            console.log(textAreas);
-
-    
-
-    // saveInsert.textContent=lastInput.UserInput;
-
-        });
-
-    };
     // converting the text to values 
     if (timesText==="9am"){
         timesText=9
@@ -150,12 +95,60 @@ weekATimes.forEach(function(timesText){
         textArea.attr("class","future description");
 
     }
-        storeInput();
+   
+    
 
 });
 
 
 
-      
+$(".saveBtn").on("click",function(event){
+    event.preventDefault();
+    weeklyCalender=[];
+    var nine=$("#9am").val().trim();
+    var ten=$("#10am").val().trim();
+    var eleven=$("#11am").val().trim();
+    var tweleve=$("#12pm").val().trim();
+    var one=$("#1pm").val().trim();
+    var two=$("#2pm").val().trim(); 
+    var three=$("#3pm").val().trim();
+    var four=$("#4pm").val().trim();
+    var five=$("#5pm").val().trim(); 
+
+    weeklyCalender.push({nineOClock:nine,tenOClock:ten,elevenOClock:eleven,tweleveOClock:tweleve,oneOClock:one,twoOClock:two,threeOClock:three,fourOClock:four,fiveOClock:five});
+    storeCalender()
+    addDayPlanner()
+
+
+});
+   
+
+function storeCalender (){
+  localStorage.setItem("weeklyCalender",JSON.stringify(weeklyCalender));
+}
+
+function retrieveCalender(){
+  weeklyCalender=JSON.parse(localStorage.getItem("weeklyCalender")||"[]");
+}
+addDayPlanner()
+function addDayPlanner(){
+    retrieveCalender();
+
+    if(weeklyCalender != ""){
+        console.log("Add Calender")
+    
+        $("#9am").text(weeklyCalender[0].nineOClock)
+        $("#10am").text(weeklyCalender[0].tenOClock)
+        $("#11am").text(weeklyCalender[0].elevenOClock)
+        $("#12pm").text(weeklyCalender[0].tweleveOClock)
+        $("#1pm").text(weeklyCalender[0].oneOClock)
+        $("#2pm").text(weeklyCalender[0].twoOClock)
+        $("#3pm").text(weeklyCalender[0].threeOClock)
+        $("#4pm").text(weeklyCalender[0].fourOClock)
+        $("#5pm").text(weeklyCalender[0].fiveOClock)
+    }
+
+    }
+
 
 
