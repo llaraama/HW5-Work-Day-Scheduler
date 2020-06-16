@@ -44,8 +44,8 @@ weekATimes.forEach(function(timesText){
 
     /* saveBtn goes inside row */
     var buttonSave=$("<button>");
-    buttonSave.text("Save");
-    buttonSave.attr("class","saveBtn");
+    buttonSave.addClass("col-md-1 saveBtn far fa-save");
+   
     
 
     /* adding it to hour, description and saveBtn to row */
