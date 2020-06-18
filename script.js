@@ -148,9 +148,9 @@ weekATimes.forEach(function(timesText){
 $(".saveBtn").on("click",function(event){
     event.preventDefault();
     weeklyCalender=[];
-    var sixa=$("#6pm").val().trim(); 
-    var sevena=$("#7pm").val().trim(); 
-    var eighta=$("#8pm").val().trim(); 
+    var sixa=$("#6am").val().trim(); 
+    var sevena=$("#7am").val().trim(); 
+    var eighta=$("#8am").val().trim(); 
     var ninea=$("#9am").val().trim();
     var tena=$("#10am").val().trim();
     var elevena=$("#11am").val().trim();
@@ -192,7 +192,7 @@ function addDayPlanner(){
         $("#8am").text(weeklyCalender[0].eightAm)
         $("#9am").text(weeklyCalender[0].nineAM)
         $("#10am").text(weeklyCalender[0].tenAm)
-        $("#11am").text(weeklyCalender[0].eightAm)
+        $("#11am").text(weeklyCalender[0].elevenAm)
         $("#12pm").text(weeklyCalender[0].twelevePm)
         $("#1pm").text(weeklyCalender[0].onePm)
         $("#2pm").text(weeklyCalender[0].twoPm)
