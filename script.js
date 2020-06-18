@@ -4,7 +4,7 @@ $("#currentDay").append(currentDate);
 
 
 let weekATimes=[
-    "9am","10am","11am","12pm","1pm","2pm", "3pm", "4pm","5pm",
+    "6am","7am","8am","9am","10am","11am","12pm","1pm","2pm", "3pm", "4pm","5pm","6pm","7pm","8pm","9pm","10pm",
 ];
 
 
@@ -15,6 +15,7 @@ storeCalender()
 
 
 var time= moment().hours();
+
 
 
 weekATimes.forEach(function(timesText){
@@ -52,7 +53,19 @@ weekATimes.forEach(function(timesText){
     rowInput.append(hourInsert,textArea,buttonSave);
 
 
-    // converting the text to values 
+    // converting the text to values
+    if (timesText==="6am"){
+        timesText=6
+    }; 
+
+    if (timesText==="7am"){
+        timesText=7
+    };
+
+    if (timesText==="8am"){
+        timesText=8
+    };
+  
     if (timesText==="9am"){
         timesText=9
     };
@@ -70,18 +83,48 @@ weekATimes.forEach(function(timesText){
     if (timesText==="1pm"){
         timesText=13
     };
-       if (timesText==="2pm"){
+       
+    if (timesText==="2pm"){
         timesText=14
     };
+
     if (timesText==="3pm"){
         timesText=15
     };
+
     if (timesText==="4pm"){
         timesText=16
     };
+
     if (timesText==="5pm"){
         timesText=17
+    }; 
+
+    if (timesText==="6pm"){
+        timesText=18
     };
+
+    if (timesText==="7pm"){
+        timesText=19
+    };
+
+    if (timesText==="8pm"){
+        timesText=20
+    };
+
+    if (timesText==="9pm"){
+        timesText=21
+    };
+
+    if (timesText==="10pm"){
+        timesText=22
+    };
+
+
+
+
+
+
 
    // setting the condition for the current time
     if (timesText<time){
@@ -105,17 +148,25 @@ weekATimes.forEach(function(timesText){
 $(".saveBtn").on("click",function(event){
     event.preventDefault();
     weeklyCalender=[];
-    var nine=$("#9am").val().trim();
-    var ten=$("#10am").val().trim();
-    var eleven=$("#11am").val().trim();
+    var sixa=$("#6pm").val().trim(); 
+    var sevena=$("#7pm").val().trim(); 
+    var eighta=$("#8pm").val().trim(); 
+    var ninea=$("#9am").val().trim();
+    var tena=$("#10am").val().trim();
+    var elevena=$("#11am").val().trim();
     var tweleve=$("#12pm").val().trim();
     var one=$("#1pm").val().trim();
     var two=$("#2pm").val().trim(); 
     var three=$("#3pm").val().trim();
     var four=$("#4pm").val().trim();
     var five=$("#5pm").val().trim(); 
+    var six=$("#6pm").val().trim(); 
+    var seven=$("#7pm").val().trim(); 
+    var eight=$("#8pm").val().trim(); 
+    var nine=$("#9pm").val().trim(); 
+    var ten=$("#10pm").val().trim(); 
 
-    weeklyCalender.push({nineOClock:nine,tenOClock:ten,elevenOClock:eleven,tweleveOClock:tweleve,oneOClock:one,twoOClock:two,threeOClock:three,fourOClock:four,fiveOClock:five});
+    weeklyCalender.push({sixAm:sixa,sevenAm:sevena,eightAm:eighta,nineAM:ninea,tenAm:tena,elevenAm:elevena,twelevePm:tweleve,onePm:one,twoPm:two,threePm:three,fourPm:four,fivePm:five,sixPM:six,sevenPm:seven,eightPm:eight,ninePm:nine,tenPm:ten});
     storeCalender()
     addDayPlanner()
 
@@ -136,16 +187,23 @@ function addDayPlanner(){
 
     if(weeklyCalender != ""){
         console.log("Add Calender")
-    
-        $("#9am").text(weeklyCalender[0].nineOClock)
-        $("#10am").text(weeklyCalender[0].tenOClock)
-        $("#11am").text(weeklyCalender[0].elevenOClock)
-        $("#12pm").text(weeklyCalender[0].tweleveOClock)
-        $("#1pm").text(weeklyCalender[0].oneOClock)
-        $("#2pm").text(weeklyCalender[0].twoOClock)
-        $("#3pm").text(weeklyCalender[0].threeOClock)
-        $("#4pm").text(weeklyCalender[0].fourOClock)
-        $("#5pm").text(weeklyCalender[0].fiveOClock)
+        $("#6am").text(weeklyCalender[0].sixAm)
+        $("#7am").text(weeklyCalender[0].sevenAm)
+        $("#8am").text(weeklyCalender[0].eightAm)
+        $("#9am").text(weeklyCalender[0].nineAM)
+        $("#10am").text(weeklyCalender[0].tenAm)
+        $("#11am").text(weeklyCalender[0].eightAm)
+        $("#12pm").text(weeklyCalender[0].twelevePm)
+        $("#1pm").text(weeklyCalender[0].onePm)
+        $("#2pm").text(weeklyCalender[0].twoPm)
+        $("#3pm").text(weeklyCalender[0].threePm)
+        $("#4pm").text(weeklyCalender[0].fourPm)
+        $("#5pm").text(weeklyCalender[0].fivePm)
+        $("#6pm").text(weeklyCalender[0].sixPM)
+        $("#7pm").text(weeklyCalender[0].sevenPm)
+        $("#8pm").text(weeklyCalender[0].eightPm)
+        $("#9pm").text(weeklyCalender[0].ninePm)
+        $("#10pm").text(weeklyCalender[0].tenPm)
     }
 
     }
