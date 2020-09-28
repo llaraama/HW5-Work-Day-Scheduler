@@ -18,7 +18,7 @@ textarea{
   background-color: transparent;
   color: black;
   border-radius: 0;
-  border-bottom: 10px solid black;
+  border-bottom: 10px solid rgb(22, 21, 21);
 }
 
 .description{
@@ -48,7 +48,7 @@ textarea{
 }
 
 .past {
-  background-color: #d3d3d3;
+  background-color: #d0a8d1;
   color: white;
 }
 
@@ -58,7 +58,7 @@ textarea{
 }
 
 .future {
-  background-color: #77dd77;
+  background-color: #a2dda2;
   color: white;
 }
 
@@ -74,4 +74,15 @@ textarea{
 .saveBtn i:hover {
   font-size: 20px;
   transition: all .3s ease-in-out;
+}
+
+#top{
+ 
+ background-image: url("./Assets/background.jpg");
+ background-position: left;
+ background-repeat: initial;
+ background-color: #23bfe2;
+}
+body{
+  background-color: rgb(219, 218, 208);
 }
