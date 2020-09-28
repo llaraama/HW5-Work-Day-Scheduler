@@ -33,7 +33,8 @@ Clone this repo to your local machine using: https://github.com/llaraama/Work-Da
 
 The following animation demonstrates the application functionality:
 
-![day planner demo](./Assets/05-third-party-apis-homework-demo.gif)
+![Untitled_ Sep 28, 2020 11_47 AM](https://user-images.githubusercontent.com/62354759/94455344-f0a94980-0180-11eb-8a21-1ebe26fe6db2.gif)
+
 
 ## License
 MIT License
